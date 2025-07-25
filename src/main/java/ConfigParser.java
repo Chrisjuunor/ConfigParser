@@ -5,10 +5,10 @@ import java.util.Map;
 public class ConfigParser {
     private Map<String, String> configMap;
 
-    public ConfigParser(String fileName) {
+    public ConfigParser(String name_of_file) {
         this.configMap = new HashMap<>();
         String env = System.getProperty("env", "production");
-        String filePath = "production".equals(env) ? fileName + ".txt" : fileName + ".txt." + env;
+        String filePath = "production".equals(env) ? name_of_file + ".txt" : name_of_file + ".txt." + env;
 
         try(InputStream input = getClass().getResourceAsStream(filePath);
         BufferedReader buffered = new BufferedReader(new InputStreamReader(input))){
